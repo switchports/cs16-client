@@ -25,7 +25,9 @@ GNU General Public License for more details.
 
 #ifndef _WIN32
     #include <limits.h>
+#ifndef __SWITCH__
     #include <dlfcn.h>
+#endif
 
     #ifdef __APPLE__
 		#include <sys/syslimits.h>
@@ -73,10 +75,12 @@ GNU General Public License for more details.
 
     // Windows functions to Linux equivalent
 	#define _mkdir( x )					mkdir( x, S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH )
+#ifndef __SWITCH__
 	#define LoadLibrary( x )			dlopen( x, RTLD_NOW )
 	#define GetProcAddress( x, y )		dlsym( x, y )
 	#define SetCurrentDirectory( x )	(!chdir( x ))
 	#define FreeLibrary( x )			dlclose( x )
+#endif
 	#define MAKEWORD(a,b)				((short int)(((unsigned char)(a))|(((short int)((unsigned char)(b)))<<8)))
 	#define max(a, b)  (((a) > (b)) ? (a) : (b))
 	#define min(a, b)  (((a) < (b)) ? (a) : (b))

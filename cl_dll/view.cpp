@@ -1669,7 +1669,7 @@ void V_CalcThirdPersonRefdef( ref_params_t *pparams )
 	ent->latched.prevangles[PITCH] = pitch;
 }
 
-void DLLEXPORT V_CalcRefdef( struct ref_params_s *pparams )
+void DLLEXPORT V_CalcRefdef_CL( struct ref_params_s *pparams )
 {
 	// intermission / finale rendering
 	if ( pparams->intermission )

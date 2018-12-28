@@ -191,7 +191,7 @@ DWORD WINAPI MousePos_ThreadFunction( LPVOID p )
 IN_ActivateMouse
 ===========
 */
-void DLLEXPORT IN_ActivateMouse (void)
+void DLLEXPORT IN_ActivateMouse_CL (void)
 {
 	if (mouseinitialized)
 	{
@@ -210,7 +210,7 @@ void DLLEXPORT IN_ActivateMouse (void)
 IN_DeactivateMouse
 ===========
 */
-void DLLEXPORT IN_DeactivateMouse (void)
+void DLLEXPORT IN_DeactivateMouse_CL (void)
 {
 	if (mouseinitialized)
 	{
@@ -343,7 +343,7 @@ void IN_ResetMouse( void )
 IN_MouseEvent
 ===========
 */
-void DLLEXPORT IN_MouseEvent (int mstate)
+void DLLEXPORT IN_MouseEvent_CL (int mstate)
 {
 	int		i;
 

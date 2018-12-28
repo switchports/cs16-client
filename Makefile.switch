@@ -1,0 +1,7 @@
+all: libclient.a
+
+libclient.a:
+	$(MAKE) -C cl_dll -f Makefile.switch
+
+clean:
+	$(MAKE) -C cl_dll -f Makefile.switch clean

@@ -28,9 +28,9 @@ int	g_iVisibleMouse = 0;
 
 extern "C" 
 {
-	void DLLEXPORT IN_ActivateMouse( void );
-	void DLLEXPORT IN_DeactivateMouse( void );
-	void DLLEXPORT IN_MouseEvent (int mstate);
+	void DLLEXPORT IN_ActivateMouse_CL( void );
+	void DLLEXPORT IN_DeactivateMouse_CL( void );
+	void DLLEXPORT IN_MouseEvent_CL (int mstate);
 	void DLLEXPORT IN_Accumulate (void);
 	void DLLEXPORT IN_ClearStates (void);
 }
@@ -166,7 +166,7 @@ void Force_CenterView_f (void)
 IN_ActivateMouse
 ===========
 */
-void DLLEXPORT IN_ActivateMouse (void)
+void DLLEXPORT IN_ActivateMouse_CL (void)
 {
 	if (mouseinitialized)
 	{
@@ -181,7 +181,7 @@ void DLLEXPORT IN_ActivateMouse (void)
 IN_DeactivateMouse
 ===========
 */
-void DLLEXPORT IN_DeactivateMouse (void)
+void DLLEXPORT IN_DeactivateMouse_CL (void)
 {
 	if (mouseinitialized)
 	{
@@ -266,7 +266,7 @@ void IN_ResetMouse( void )
 IN_MouseEvent
 ===========
 */
-void DLLEXPORT IN_MouseEvent (int mstate)
+void DLLEXPORT IN_MouseEvent_CL (int mstate)
 {
 	int		i;
 
