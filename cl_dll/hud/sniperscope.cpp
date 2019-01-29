@@ -105,6 +105,9 @@ int CHudSniperScope::Draw(float flTime)
 
 void CHudSniperScope::Shutdown()
 {
+	//TODO: Figure out why this causes an instruction abort
+#ifndef __SWITCH__
 	for( int i = 0; i < 4; i++ )
 		gRenderAPI.GL_FreeTexture( m_iScopeArc[i] );
+#endif
 }

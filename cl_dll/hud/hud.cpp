@@ -410,7 +410,7 @@ void CHud :: VidInit( void )
 	m_hGasPuff = SPR_Load("sprites/gas_puff_01.spr");
 
 
-	/*m_Ammo.VidInit();
+	m_Ammo.VidInit();
 	m_Health.VidInit();
 	m_Spectator.VidInit();
 	m_Geiger.VidInit();
@@ -432,7 +432,7 @@ void CHud :: VidInit( void )
 	m_ProgressBar.VidInit();
 	m_SniperScope.VidInit();
 	m_Radar.VidInit();
-	m_SpectatorGui.VidInit();*/
+	m_SpectatorGui.VidInit();
 
 	for( HUDLIST *pList = m_pHudList; pList; pList = pList->pNext )
 		pList->p->VidInit();
@@ -450,10 +450,10 @@ void CHud :: VidInit( void )
 
 void CHud::Shutdown( void )
 {
-	for( HUDLIST *pList = m_pHudList; pList; pList = pList->pNext )
+	/*for( HUDLIST *pList = m_pHudList; pList; pList = pList->pNext )
 	{
 		pList->p->Shutdown();
-	}
+	}*/
 }
 
 int CHud::MsgFunc_Logo(const char *pszName,  int iSize, void *pbuf)

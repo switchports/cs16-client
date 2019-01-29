@@ -3,7 +3,7 @@ CC        = $(PREFIX)-gcc
 CXX       = $(PREFIX)-g++
 AR        = $(PREFIX)-ar
 
-SRCS = ./cdll_int.cpp \
+SRCS = 	./cdll_int.cpp \
 ./demo.cpp \
 ./entity.cpp \
 ./in_camera.cpp \
@@ -16,9 +16,6 @@ SRCS = ./cdll_int.cpp \
 ./vgui_parser.cpp \
 ./unicode_strtools.cpp \
 ./draw_util.cpp \
-../pm_shared/pm_debug.cpp \
-../pm_shared/pm_math.cpp \
-../pm_shared/pm_shared.cpp \
 ./studio/GameStudioModelRenderer.cpp \
 ./studio/StudioModelRenderer.cpp \
 ./studio/studio_util.cpp \
@@ -116,18 +113,17 @@ SRCS = ./cdll_int.cpp \
 ./events/event_xm1014.cpp \
 ./events/hl_events.cpp \
 ./ev_common.cpp \
+../pm_shared/pm_debug.cpp \
+../pm_shared/pm_math.cpp \
+../pm_shared/pm_shared.cpp \
 ../utils/switch/switch_client.cpp
 
-SRCS_C = ../pm_shared/pm_debug.c \
-../pm_shared/pm_math.c \
-../pm_shared/pm_shared.c
-
-OBJS = $(SRCS:.cpp=.o) $(SRCS_C:.c=.o)
+OBJS = $(SRCS:.cpp=.o)
 
 INCLUDES = -I. -Iinclude -Iinclude/hud -Iinclude/studio -Iinclude/math -I../common -I../engine -I../game_shared -I../dlls -I../pm_shared -I../public -I../utils/switch -include "classhacks.h" -include "../utils/switch/switch_defs.h"
-DEFINES = -Dstricmp=strcasecmp -D_strnicmp=strncasecmp -Dstrnicmp=strncasecmp -D_snprintf=snprintf -DCLIENT_WEAPONS -DCLIENT_DLL -D__SWITCH__
+DEFINES = -Dstricmp=strcasecmp -D_strnicmp=strncasecmp -Dstrnicmp=strncasecmp -D_snprintf=snprintf -DCLIENT_DLL -DCLIENT_WEAPONS -D__SWITCH__
 CFLAGS = -march=armv8-a -mtune=cortex-a57 -mtp=soft -fPIE -g3 -O2 -Wl,-q -Wfatal-errors -Wno-write-strings -fsigned-char -fno-lto -fno-short-enums  $(DEFINES) $(INCLUDES)
-CXXFLAGS = $(CFLAGS) -fno-exceptions -fno-threadsafe-statics -fpermissive -static-libstdc++ -static-libgcc
+CXXFLAGS = $(CFLAGS) -fpermissive -static-libstdc++ -std=gnu++11 -static-libgcc
 ASFLAGS = $(CFLAGS)
 
 all: libclient.a
